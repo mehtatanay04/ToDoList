@@ -1,6 +1,8 @@
-// Load tasks from localStorage on page load
+// Load tasks and theme on page load
 document.addEventListener('DOMContentLoaded', () => {
     loadTasks();
+    loadTheme();
+    document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 });
 
 function addTask() {
@@ -10,13 +12,15 @@ function addTask() {
 
     const taskList = document.getElementById('taskList');
     const li = document.createElement('li');
-    li.className = 'task-item flex justify-between items-center p-3 bg-gray-100 rounded-lg';
+    li.className = 'task-item flex justify-between items-center p-4 bg-gray-100 dark:bg-gray-700 rounded-lg';
     li.innerHTML = `
         <div class="flex items-center">
-            <input type="checkbox" onchange="toggleTask(this)" class="mr-2 h-5 w-5">
-            <span>${taskText}</span>
+            <input type="checkbox" onchange="toggleTask(this)" class="mr-3 h-5 w-5 text-blue-500 rounded">
+            <span class="text-gray-800 dark:text-white">${taskText}</span>
         </div>
-        <button onclick="deleteTask(this)" class="text-red-500 hover:text-red-700">✕</button>
+        <button onclick="deleteTask(this)" class="text-red-500 hover:text-red-700 transition">
+            <i class="fas fa-trash"></i>
+        </button>
     `;
     taskList.appendChild(li);
     taskInput.value = '';
@@ -59,13 +63,15 @@ function loadTasks() {
     const taskList = document.getElementById('taskList');
     tasks.forEach(task => {
         const li = document.createElement('li');
-        li.className = `task-item flex justify-between items-center p-3 bg-gray-100 rounded-lg ${task.completed ? 'completed' : ''}`;
+        li.className = `task-item flex justify-between items-center p-4 bg-gray-100 dark:bg-gray-700 rounded-lg ${task.completed ? 'completed' : ''}`;
         li.innerHTML = `
             <div class="flex items-center">
-                <input type="checkbox" ${task.completed ? 'checked' : ''} onchange="toggleTask(this)" class="mr-2 h-5 w-5">
-                <span>${task.text}</span>
+                <input type="checkbox" ${task.completed ? 'checked' : ''} onchange="toggleTask(this)" class="mr-3 h-5 w-5 text-blue-500 rounded">
+                <span class="text-gray-800 dark:text-white">${task.text}</span>
             </div>
-            <button onclick="deleteTask(this)" class="text-red-500 hover:text-red-700">✕</button>
+            <button onclick="deleteTask(this)" class="text-red-500 hover:text-red-700 transition">
+                <i class="fas fa-trash"></i>
+            </button>
         `;
         taskList.appendChild(li);
     });
@@ -76,6 +82,21 @@ function updateClearAllButton() {
     const clearAllBtn = document.getElementById('clear-all-btn');
     const taskList = document.getElementById('taskList');
     clearAllBtn.classList.toggle('hidden', taskList.children.length === 0);
+}
+
+function toggleTheme() {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    document.getElementById('theme-toggle').innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+}
+
+function loadTheme() {
+    const theme = localStorage.getItem('theme') || 'light';
+    if (theme === 'dark') {
+        document.body.classList.add('dark');
+        document.getElementById('theme-toggle').innerHTML = '<i class="fas fa-sun"></i>';
+    }
 }
 
 // Allow adding task with Enter key

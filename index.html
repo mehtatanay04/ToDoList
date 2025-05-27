@@ -5,17 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="flex items-center justify-center p-4">
-    <div class="bg-white rounded-2xl shadow-xl p-6 w-full max-w-md">
-        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">To-Do List</h1>
-        <div class="flex mb-4">
-            <input type="text" id="taskInput" class="flex-1 p-3 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Add a new task...">
-            <button onclick="addTask()" class="bg-blue-500 text-white p-3 rounded-r-lg hover:bg-blue-600 transition duration-200">Add</button>
+<body class="flex items-center justify-center p-4 transition-colors duration-300">
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 w-full max-w-md transition-colors duration-300">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-3xl font-bold text-gray-800 dark:text-white">To-Do List</h1>
+            <button id="theme-toggle" class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white transition">
+                <i class="fas fa-moon"></i>
+            </button>
         </div>
-        <ul id="taskList" class="space-y-2"></ul>
-        <button id="clear-all-btn" onclick="clearAllTasks()" class="mt-4 w-full bg-red-500 text-white p-3 rounded-lg hover:bg-red-600 transition duration-200 hidden">Clear All</button>
+        <div class="relative mb-6">
+            <input type="text" id="taskInput" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white peer" placeholder=" ">
+            <label for="taskInput" class="absolute left-3 -top-2 text-sm text-gray-500 dark:text-gray-400 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-focus:-top-2 peer-focus:text-sm">Add a new task...</label>
+            <button onclick="addTask()" class="absolute right-0 top-0 h-full bg-blue-500 text-white px-4 rounded-r-lg hover:bg-blue-600 transition duration-200">
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+        <ul id="taskList" class="space-y-3"></ul>
+        <button id="clear-all-btn" onclick="clearAllTasks()" class="mt-6 w-full bg-red-500 text-white p-3 rounded-lg hover:bg-red-600 transition duration-200 hidden">
+            <i class="fas fa-trash mr-2"></i> Clear All
+        </button>
     </div>
     <script src="script.js"></script>
 </body>
