@@ -1,0 +1,24 @@
+body {
+    background: linear-gradient(135deg, #6ee7b7, #3b82f6);
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+}
+.task-item {
+    transition: all 0.3s ease;
+}
+.task-item.completed {
+    background-color: #d1fae5;
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+.task-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+#clear-all-btn {
+    transition: all 0.3s ease;
+}
+#clear-all-btn:hover {
+    background-color: #ef4444;
+    transform: scale(1.05);
+}
