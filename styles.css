@@ -1,40 +1,98 @@
 body {
-    background: linear-gradient(135deg, #a7f3d0, #60a5fa);
-    min-height: 100vh;
-    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    font-family: 'Roboto', sans-serif;
 }
 
-body.dark {
-    background: linear-gradient(135deg, #1f2937, #4b5563);
+.container {
+    background: #2d3748;
+    border: 2px solid #00f7ff;
+    box-shadow: 0 0 15px rgba(0, 247, 255, 0.3);
+}
+
+.header {
+    border-bottom: 2px solid #00f7ff;
+}
+
+.header h1 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #00f7ff;
+}
+
+.task-header span {
+    letter-spacing: 1px;
 }
 
 .task-item {
-    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background: #4b5563;
+    border-radius: 8px;
     animation: fadeIn 0.5s ease-out;
 }
 
-.task-item.completed {
-    background-color: #e6fffa;
-    text-decoration: line-through;
-    opacity: 0.7;
+.task-item .task-number {
+    width: 32px;
+    text-align: center;
+    color: #ffffff;
 }
 
-.task-item.completed.dark {
-    background-color: #374151;
+.task-item .task-text {
+    flex: 1;
+    color: #ffffff;
 }
 
-.task-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+.status-button {
+    width: 100px;
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    color: #ffffff;
 }
 
-#clear-all-btn {
+.status-button.pending {
+    background-color: #00f7ff;
+    color: #0f172a;
+}
+
+.status-button.completed {
+    background-color: #39ff14;
+    color: #0f172a;
+}
+
+.status-button:hover {
+    opacity: 0.9;
+}
+
+.delete-button {
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    background: #ff00ff;
+    color: #ffffff;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: all 0.3s ease;
 }
 
-#clear-all-btn:hover {
-    background-color: #ef4444;
-    transform: scale(1.05);
+.delete-button:hover {
+    background: #ff66ff;
+}
+
+.add-button {
+    background: #ff00ff;
+    transition: all 0.3s ease;
+}
+
+.add-button:hover {
+    background: #ff66ff;
 }
 
 @keyframes fadeIn {
