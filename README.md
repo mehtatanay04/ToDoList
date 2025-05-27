@@ -1,39 +1,28 @@
-# Todo List Application
+# 📝 Todo List Application
 
-A clean, responsive Todo List web application with dark/light mode toggle, built with vanilla HTML, CSS, and JavaScript.
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Vercel-000000?style=for-the-badge&logo=vercel)](https://to-do-list-nine-navy-86.vercel.app/)
+[![GitHub](https://img.shields.io/badge/💻_Source_Code-GitHub-181717?style=for-the-badge&logo=github)](https://github.com/your-username/todo-list-app)
 
-## Features
+A modern, responsive Todo List with dark mode - built with pure HTML, CSS, and JavaScript.
 
-- ✅ Add, manage, and delete tasks
-- 🌓 Dark/Light mode toggle (persists on refresh)
-- 📱 Fully responsive design
-- 🎨 Modern UI with shadow box container
-- 🔄 Refresh/clear all tasks with confirmation
-- ✨ Smooth animations and transitions
+![App Screenshot](./screenshot.png) 
 
-## Technologies Used
+## ✨ Features
 
-- HTML5
-- CSS3 (with Variables for theming)
-- JavaScript (ES6)
-- Vercel (for deployment)
+- ✅ **Add/Delete tasks** with one click
+- 🌓 **Dark/Light mode** (auto-saves preference)
+- 🔄 **Refresh button** with confirmation
+- 📱 **Fully responsive** design
+- 🎨 **Sleek UI** with shadow effects
+- ⚡ **Fast loading** (static Vercel deployment)
 
-## How to Use
+## 🚀 Quick Start
 
-1. **Add a Task**:
-   - Click "+ Add Task" button
-   - Enter task name and press Enter/click "Add Task"
+1. **Using the Live App**:  
+   Visit → [https://to-do-list-nine-navy-86.vercel.app/](https://to-do-list-nine-navy-86.vercel.app/)
 
-2. **Manage Tasks**:
-   - Change status via dropdown (Pending/Completed)
-   - Delete tasks with the 🗑️ icon
-   - Clear all tasks with "Refresh" button
-
-3. **Toggle Theme**:
-   - Click the 🌙/☀️ icon in top-right corner
-
-## Installation (Local Development)
-
-1. Clone the repository:
+2. **Run Locally**:
    ```bash
    git clone https://github.com/mehtatanay04/ToDoList.git
+   cd ToDoList
+   open index.html
